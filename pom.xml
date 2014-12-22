@@ -14,16 +14,16 @@
 
   <repositories>
     <repository>
-      <id>bukkit-repo</id>
-      <url>http://repo.bukkit.org/content/groups/public/</url>
-    </repository>
+      <id>spigot-repo</id>
+      <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
+	</repository>
   </repositories>
   
   <dependencies>
     <dependency>
       <groupId>org.bukkit</groupId>
       <artifactId>bukkit</artifactId>
-      <version>1.7.9-R0.1</version>
+      <version>1.8-R0.1-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
@@ -35,39 +35,19 @@
 
   <distributionManagement>
     <repository>
-      <id>internal.repo</id>
-      <name>staging</name>
-      <url>file://${project.build.directory}/mvn-repo</url>
+    	<id>server</id>
+    	<name>public-releases</name>
+      <url>http://repo.franga2000.com/artifactory/public</url>
     </repository>
+    <snapshotRepository>
+      <id>server</id>
+      <name>public-snapshots</name>
+      <url>http://repo.franga2000.com/artifactory/public</url>
+    </snapshotRepository>
   </distributionManagement>
 
   <build>
     <plugins>
-      <plugin>
-        <groupId>com.github.github</groupId>
-        <artifactId>site-maven-plugin</artifactId>
-        <version>0.10</version>
-        <configuration>
-          <message>Maven artifacts for ${project.version}</message>
-          <noJekyll>true</noJekyll>
-          <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
-          <branch>refs/heads/mvn-repo</branch>
-          <includes><include>**/*</include></includes>
-          <repositoryName>fanciful</repositoryName>
-          <repositoryOwner>mkremins</repositoryOwner>
-          <merge>true</merge>
-        </configuration>
-        <executions>
-          <!-- run site-maven-plugin's 'site' target as part of the build's normal 'deploy' phase -->
-          <execution>
-            <goals>
-              <goal>site</goal>
-            </goals>
-            <phase>deploy</phase>
-          </execution>
-        </executions>
-      </plugin>
-
       <!-- Shade GSON because it's no longer in Spigot. -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
