@@ -34,7 +34,7 @@
 
 	<distributionManagement>
 		<repository>
-			<id>franga2000-public</id>
+			<id>franga2000-repo</id>
 			<name>public-releases</name>
 			<url>http://repo.franga2000.com/artifactory/public</url>
 		</repository>
