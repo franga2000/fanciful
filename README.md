@@ -30,3 +30,4 @@ Relatively stable core featureset, with new features under active development.
 License
 --------
 [MIT License](http://opensource.org/licenses/MIT). Hack away.
+ 
